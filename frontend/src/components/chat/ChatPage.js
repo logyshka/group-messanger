@@ -120,8 +120,8 @@ const ChatPage = () => {
                 <div
                     ref={messageContainerRef}
                     style={{
-                        marginTop: '10vh',        // высота хедера
-                        marginBottom: '10vh',     // высота футера
+                        marginTop: '10vh',
+                        marginBottom: '10vh',
                         overflowY: 'auto',
                         height: '80vh',
                         paddingTop: '2vh',
