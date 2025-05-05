@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {messagesAPI} from '../../services/api';
 import {useAuth} from '../../contexts/AuthContext';
-import './MessageList.css';
 import {Stack} from "@mui/material";
 import {MdDelete, MdEdit} from "react-icons/md";
 import {Badge} from "react-bootstrap";
@@ -153,26 +152,6 @@ const Message = ({message, isOwnMessage, onEdit, onDelete}) => {
             )}
         </Stack>
 
-    );
-
-    return (
-        <div className={`message ${isOwnMessage ? 'own-message' : ''}`}>
-            <div className="message-content">
-                <p>{message.content}</p>
-                <div className="message-info-contrainer">
-                    <div className="message-author">@{message.user.username}</div>
-                    <div className="message-time">
-                        {messageTime}
-                    </div>
-                </div>
-            </div>
-            {isOwnMessage && (
-                <div className="message-actions">
-                    <button onClick={onEdit}>Edit</button>
-                    <button onClick={onDelete}>Delete</button>
-                </div>
-            )}
-        </div>
     );
 };
 

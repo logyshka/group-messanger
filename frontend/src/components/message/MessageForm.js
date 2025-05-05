@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {messagesAPI} from '../../services/api';
-import './MessageForm.css';
 import {FiSend} from "react-icons/fi";
 import Button from "@mui/joy/Button";
 import {Grid} from "@mui/joy";
