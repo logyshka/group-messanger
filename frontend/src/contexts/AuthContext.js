@@ -1,21 +1,17 @@
 import React, {createContext, useState, useContext, useEffect} from 'react';
 import {authAPI} from '../services/api';
 
-// Create the authentication context
 const AuthContext = createContext();
 
-// Custom hook to use the auth context
 export const useAuth = () => {
     return useContext(AuthContext);
 };
 
-// Provider component that wraps the app and makes auth object available to any child component that calls useAuth()
 export const AuthProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
-    // Check if user is logged in on initial load
     useEffect(() => {
         const token = localStorage.getItem('token');
         const username = localStorage.getItem('username');
@@ -25,7 +21,6 @@ export const AuthProvider = ({children}) => {
         setLoading(false);
     }, []);
 
-    // Register a new user
     const register = async (username, password) => {
         setError('');
         try {
@@ -43,7 +38,6 @@ export const AuthProvider = ({children}) => {
         }
     };
 
-    // Login a user
     const login = async (username, password) => {
         setError('');
         try {
@@ -60,7 +54,6 @@ export const AuthProvider = ({children}) => {
         }
     };
 
-    // Logout a user
     const logout = () => {
         authAPI.logout();
         setCurrentUser(null);

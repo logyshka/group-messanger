@@ -111,8 +111,6 @@ const MessageList = ({chatId, onEditMessage, onDeleteMessage, refreshTrigger}) =
                 <div ref={messagesEndRef}/>
             </Stack>
         </div>
-
-
     );
 };
 
@@ -148,7 +146,6 @@ const Message = ({message, isOwnMessage, onEdit, onDelete}) => {
                 </div>
             )}
         </Stack>
-
     );
 };
 
