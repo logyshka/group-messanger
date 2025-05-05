@@ -55,7 +55,6 @@ const MessageList = ({chatId, onEditMessage, onDeleteMessage, refreshTrigger}) =
         });
     }, [chatId, refreshTrigger]);
 
-    // Автообновление новых сообщений каждые 5 секунд
     useEffect(() => {
         const interval = setInterval(async () => {
             const lastMessageId = messages.length === 0 ? 0 : messages[messages.length - 1].id;
@@ -68,12 +67,10 @@ const MessageList = ({chatId, onEditMessage, onDeleteMessage, refreshTrigger}) =
         return () => clearInterval(interval);
     }, [chatId, messages]);
 
-    // Прокрутка вниз
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({behavior: 'smooth'});
     };
 
-    // Подгрузка при прокрутке вверх
     const handleScroll = async () => {
         const el = containerRef.current;
         if (el.scrollTop === 0 && hasMore && !loadingRef.current) {
